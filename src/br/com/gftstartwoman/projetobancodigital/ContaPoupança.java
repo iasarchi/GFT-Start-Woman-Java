@@ -1,4 +1,5 @@
 package br.com.gftstartwoman.projetobancodigital;
 
-public class ContaPoupança extends Contas {
+public class ContaPoupança extends Conta {
+
 }

@@ -1,5 +1,5 @@
 package br.com.gftstartwoman.projetobancodigital;
 
-public class ContaCorrente extends Contas{
+public class ContaCorrente extends Conta{
 
 }
