@@ -15,7 +15,7 @@ public class ExceptionsPersonalizadas {
 
                 int resultado = numerador[i]/denominador[i];
                 System.out.println(resultado);
-            } catch (DivisaoNaoExataException e) {
+            } catch (DivisaoNaoExataException | ArithmeticException | ArrayIndexOutOfBoundsException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null, e.getMessage());
             }
