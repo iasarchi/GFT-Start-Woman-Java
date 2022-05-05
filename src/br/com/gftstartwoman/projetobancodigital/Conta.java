@@ -1,17 +1,18 @@
 package br.com.gftstartwoman.projetobancodigital;
 
-public class Conta implements Iconta {
+public abstract class Conta implements IConta {
 
     private static final int AGENCIA_PADRAO = 0001;
     private static int SEQUECIAL = 1;
 
-    public Conta(){
+    public Conta() {
         this.agencia = AGENCIA_PADRAO;
         this.numero = SEQUECIAL++;
     }
+
     protected int agencia;
     protected int numero;
-    protected int saldo;
+    protected double saldo;
 
     @Override
     public void sacar(double valor) {
@@ -21,14 +22,14 @@ public class Conta implements Iconta {
     @Override
     public void depositar(double valor) {
         saldo += valor;
-
     }
 
     @Override
     public void transferir(double valor, Conta contaDestino) {
+        this.sacar(valor);
+        contaDestino.depositar(valor);
 
     }
-
 
     public int getAgencia() {
         return agencia;
@@ -38,9 +39,13 @@ public class Conta implements Iconta {
         return numero;
     }
 
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
-
+    protected void imprimirDadosDaConta() {
+        System.out.printf("Agencia: %d%n", this.agencia);
+        System.out.printf("Agencia: %d%n", this.numero);
+        System.out.printf("Agencia: %.2f%n", this.saldo);
+    }
 }
 
